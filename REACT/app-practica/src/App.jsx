@@ -27,15 +27,15 @@ export function App() {
       <h1>Ejercicio Events</h1>
       <AlertClock />
       <hr />
-      <h1>Use State</h1>
+      <h1> Ejercicio useState 1-2</h1>
       <Counter initialvalue={0} />
       <hr />
-      <h1>Use Effect</h1>
+      <h1> Ejercicio useEffect 1</h1>
       <CounterTwo initialvalue={10} />
 <h2> Current time, useEffect Ejercicio 2 </h2>
       <Clock />
       <hr />
-      <h1>Event Handler</h1>
+      <h1>Ejercicio Event Handler 1-2</h1>
       <MouseClicker />
     </div>
   );
