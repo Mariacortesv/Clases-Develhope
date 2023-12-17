@@ -3,6 +3,10 @@ import { Message } from "./Message";
 import { Welcome } from "./Welcome";
 import { ConditionalRendering } from "./ConditionalRendering";
 import { AlertClock } from "./AlertClock";
+import { Counter } from "./Counter";
+import { CounterTwo } from "./CounterUseEffect";
+import { Clock } from "./Clock";
+import { MouseClicker } from "./mouseClicker";
 
 export function App() {
   return (
@@ -22,6 +26,17 @@ export function App() {
       <hr />
       <h1>Ejercicio Events</h1>
       <AlertClock />
+      <hr />
+      <h1>Use State</h1>
+      <Counter initialvalue={0} />
+      <hr />
+      <h1>Use Effect</h1>
+      <CounterTwo initialvalue={10} />
+<h2> Current time, useEffect Ejercicio 2 </h2>
+      <Clock />
+      <hr />
+      <h1>Event Handler</h1>
+      <MouseClicker />
     </div>
   );
 }
