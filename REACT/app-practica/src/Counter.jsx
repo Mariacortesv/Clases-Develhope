@@ -1,21 +1,22 @@
 import { useState } from "react";
+import { CounterDisplay } from "./CounterDisplay";
 
-export function Counter({initialvalue = 0}) {
+export function Counter({ initialvalue = 0 }) {
   const [counter, setCounter] = useState(initialvalue);
 
   function handlerCounterIncrement() {
     // inmediato setCounter(counter + 1);
     //Callback mas seguro
     setCounter((c) => {
-        return c + 1
-    })
+      return c + 1;
+    });
   }
 
   function handlerCounterDecrement() {
     //setCounter(counter - 1);
     setCounter((c) => {
-        return c - 1
-    })
+      return c - 1;
+    });
   }
 
   function handlerCounterReset() {
@@ -25,7 +26,7 @@ export function Counter({initialvalue = 0}) {
 
   return (
     <div>
-      <h2>I have counted to {counter}</h2>
+      <CounterDisplay counter={counter} />
       <button onClick={handlerCounterIncrement}>Increment</button>
       <button onClick={handlerCounterDecrement}>Decrement</button>
       <button onClick={handlerCounterReset}>Reset</button>

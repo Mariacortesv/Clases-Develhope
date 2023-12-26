@@ -6,7 +6,7 @@ import { AlertClock } from "./AlertClock";
 import { Counter } from "./Counter";
 import { CounterTwo } from "./CounterUseEffect";
 import { Clock } from "./Clock";
-import { MouseClicker } from "./mouseClicker";
+import { MouseClicker } from "./MouseClicker";
 
 export function App() {
   return (
