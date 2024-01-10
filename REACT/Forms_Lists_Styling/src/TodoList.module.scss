@@ -1,0 +1,42 @@
+// Ejercicio Styling Components 3
+
+.container-todolist {
+border: 1px solid orange;
+padding: 10px;
+
+}
+
+ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+.li-todo{
+    display: flex;
+    position: relative;
+    margin: 10px;
+    justify-content: space-between;
+}
+
+.li-todo button {
+    background-color: rgb(112, 83, 209);
+    color: bisque;
+}
+
+.input-todo {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 10px;
+}
+
+.input-todo input {
+    height: 50px;
+    margin: 5px;
+}
+
+.input-todo button {
+    margin: 5px;
+    background-color: rgb(112, 83, 209);
+    color: bisque;
+}
