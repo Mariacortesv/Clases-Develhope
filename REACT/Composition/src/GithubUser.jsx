@@ -1,51 +1,49 @@
-import { useGithubUser } from "./UseGithubUser";
+import React, { useState } from "react";
+import { GithubUserEjercicio } from "./GithubUserEjercicio"; // Ajusta la ruta según sea necesario
+import { useGithubUser } from "./UseGithubUser.jsx"
 
-export function GithubUser({ username }) {
+export function GithubUsers() {
+  const [username, setUsername] = useState("");
+  const { data, loading, error, onFetchUser } = useGithubUser();
+  const [users, setUsers] = useState([]);
 
-  const {data, loading, error,onFetchUser } = useGithubUser(username)
+  const handleSearchUser = async () => {
+    try {
+      await onFetchUser(username);
+      setUsers((prevUsers) => [...prevUsers, username]);
+      setUsername("");
+    } catch (error) {
+      console.error("User not found", error);
+    }
+  };
 
-  function handleGetUserData(){
-    onFetchUser(username)
-  }
+  const handleReset = () => {
+    setUsers([]);
+    setUsername("");
+  };
 
   return (
     <div>
-      <button onClick={handleGetUserData}> Load user Data</button>
-      {loading && <h1> Loading ...</h1>}
-      {error && <h1>There Has Been an Error!</h1>}
-      {data && <h1> {data.name}</h1>}
+      <input
+        type="text"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
+      <button onClick={handleSearchUser}>Search</button>
+      <button onClick={handleReset}>Reset</button>
+
+      <ul>
+        {users.map((user, index) => (
+          <li key={index}>
+            <GithubUserEjercicio username={user} />
+          </li>
+        ))}
+      </ul>
+
+      {loading && <p>Loading...</p>}
+      {error && <p>Error: {error.message}</p>}
+      {data && <GithubUserEjercicio username={data.login} />}
+
     </div>
   );
 }
-
-/* Cuando el componente renderice, la variable data estara viacia, pero el efecto 
-secundario definido en el callback useEffect sera ejecutado y despues la promesa se resolvera
-y tendre el json devuelto desde la API github y tmare el JSON y lo guardare dentro de la 
-variable setData */
-
-/* Como la parte de loading esta siempre en true , seguira pasando, debemos hacer un finall,
-para que pueda llamar al final a la carga del conjunto, para que siempre sea false al final */
-
-/*  MODO FETCH
-  { useEffect(() => {
-    setLoading(true);
-    setError(null); //lo establecemos antes de empezar a cargar para no mantener el error si se cambia el nombre
-    fetch(`https://api.github.com/users/${username}`)
-      .then((response) => {
-        if (response.status !== 200) {
-          setError(new Error("User not Found"));
-        }
-        return response.json();
-      })
-      .then((json) => {
-        //console.log(json);
-        //setLoading(false);
-        setData(json);
-      })
-      .catch((error) => {
-        setError(error);
-      }) //Si pasa otro tipo de error
-      .finally(() => {
-        setLoading(false);
-      });
-  }, [username]);} */

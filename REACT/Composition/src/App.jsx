@@ -3,12 +3,14 @@ import { LanguageContext } from "./LenguageContext";
 import { MyContainer } from "./MyContainer";
 import { Welcome } from "./Welcome";
 import { HelloWorld } from "./Helloworld";
-import { GithubUser } from "./GithubUser";
+import { GithubUserClase } from "./GithubUserClase";
 import { HookCounter } from "./CounterHook";
 import { useCounter } from "./UseCounter";
 import { Container } from "./Container";
 import { LanguageContextEjercicio } from "./LanguageContextEjercicio";
 import { Clock } from "./Clock";
+import { GithubUsers } from "./GithubUser";
+import { GithubUserEjercicio } from "./GithubUserEjercicio";
 
 export function App() {
   const [language, setLanguage] = useState("en");
@@ -39,7 +41,7 @@ export function App() {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
-          <GithubUser username={username} />
+          <GithubUserClase username={username} />
           <HookCounter />
         </LanguageContext.Provider>
       </MyContainer>
@@ -59,6 +61,10 @@ export function App() {
           <button onClick={() => handleSetSelectedLanguage("es")}>ES</button>
           <button onClick={() => handleSetSelectedLanguage("en")}>EN</button>
         </LanguageContextEjercicio.Provider>
+        <h3>Ejercicio 3 y 4 - Data Fetching with fetch and useEffect </h3>
+
+        <GithubUserEjercicio username={username} />
+        <GithubUsers />
       </div>
     </div>
   );
