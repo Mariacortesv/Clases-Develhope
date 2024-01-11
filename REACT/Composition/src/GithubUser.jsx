@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { GithubUserEjercicio } from "./GithubUserEjercicio"; // Ajusta la ruta según sea necesario
+import { GithubUserEjercicio } from "./GithubUserEjercicio";
 import { useGithubUser } from "./UseGithubUser.jsx"
 
 export function GithubUsers() {
   const [username, setUsername] = useState("");
-  const { data, loading, error, onFetchUser } = useGithubUser();
+  const { data, loading, error, onFetchUser } = useGithubUser(username);
   const [users, setUsers] = useState([]);
 
   const handleSearchUser = async () => {

@@ -11,6 +11,7 @@ import { LanguageContextEjercicio } from "./LanguageContextEjercicio";
 import { Clock } from "./Clock";
 import { GithubUsers } from "./GithubUser";
 import { GithubUserEjercicio } from "./GithubUserEjercicio";
+import { ControlledForm } from "./ControlledForm";
 
 export function App() {
   const [language, setLanguage] = useState("en");
@@ -42,7 +43,6 @@ export function App() {
             onChange={(e) => setUsername(e.target.value)}
           />
           <GithubUserClase username={username} />
-          <HookCounter />
         </LanguageContext.Provider>
       </MyContainer>
       <hr />
@@ -62,9 +62,15 @@ export function App() {
           <button onClick={() => handleSetSelectedLanguage("en")}>EN</button>
         </LanguageContextEjercicio.Provider>
         <h3>Ejercicio 3 y 4 - Data Fetching with fetch and useEffect </h3>
-
+        <h4>Get User</h4>
         <GithubUserEjercicio username={username} />
+        <h4>Search User</h4>
         <GithubUsers />
+        <h3>Ejercicios - Custom Hooks</h3>
+        <h4>1- Counter Hook</h4>
+        <HookCounter />
+        <h4>2- Controlled Form Hook</h4>
+        <ControlledForm />
       </div>
     </div>
   );

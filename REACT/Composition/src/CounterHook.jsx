@@ -6,7 +6,7 @@ export function HookCounter({ initialvalue = 0 }) {
 
   return (
     <div>
-      <h2>I have counted to {counter}</h2>
+      <h3>I have counted to {counter}</h3>
       <button onClick={onIncrement}>Increment</button>
       <button onClick={onDecrement}>Decrement</button>
       <button onClick={onReset}>Reset</button>
