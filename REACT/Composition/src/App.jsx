@@ -12,6 +12,7 @@ import { Clock } from "./Clock";
 import { GithubUsers } from "./GithubUser";
 import { GithubUserEjercicio } from "./GithubUserEjercicio";
 import { ControlledForm } from "./ControlledForm";
+import { CurrentLocation } from "./CurrentLocation";
 
 export function App() {
   const [language, setLanguage] = useState("en");
@@ -71,6 +72,8 @@ export function App() {
         <HookCounter />
         <h4>2- Controlled Form Hook</h4>
         <ControlledForm />
+        <h4>5 - Current Location</h4>
+        <CurrentLocation />
       </div>
     </div>
   );
