@@ -1,0 +1,48 @@
+.app {
+    padding: 20px;
+    margin: 20px;
+    border: 3px solid rgb(136, 49, 49);
+    background-color: azure;
+
+}
+
+.app-content-hidden {
+    display: none;
+}
+
+hr {
+    color: rgb(136, 49, 49);
+    border-width: 3px;
+    border-style:dashed;
+}
+
+.ejercicios {
+    background-color: antiquewhite;
+    border:  3px solid red;
+    padding: 10px;
+        
+    h3{
+        color:rgb(136, 49, 49);
+    }
+
+    h4 {
+        color: rgb(35, 147, 50);
+    }
+}
+
+.container {
+    background-color: aliceblue;
+    margin: 5px;
+    border:  3px solid red;
+    padding: 10px;
+
+}
+
+.container-contenido {
+    display: block;
+    background-color: rgb(114, 151, 158);
+}
+
+.container-contenido-hidden{
+    display: none;
+}
