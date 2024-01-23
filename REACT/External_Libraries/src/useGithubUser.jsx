@@ -31,3 +31,4 @@ export function useGithubUser(username) {
 // al configurar el fetcher en la root no lo necesitmaos mas aqui
 // podemos pasar en este segundo pasametro cualquier otra cosa tambien entre {}
 //Ejercicio SWR 1-2-3
+
