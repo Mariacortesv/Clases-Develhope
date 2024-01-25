@@ -1,0 +1,9 @@
+#root {
+  border: 2px solid red;
+}
+
+.checkpoint {
+  border: 2px solid green;
+  padding: 5px;
+  margin: 5px;
+}
