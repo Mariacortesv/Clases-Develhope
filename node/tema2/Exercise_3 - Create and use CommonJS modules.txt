@@ -1,0 +1,13 @@
+Exercise 3 - Create and use CommonJS modules
+
+Create a script that uses module.exports to export a function.
+Create another script that uses require() to import the function and then calls it.
+
+There should be a script that:
+
+Defines a function
+Exports that function with module.exports
+There should be another script that:
+
+Uses require() to import the function from the other script
+Calls the imported function
