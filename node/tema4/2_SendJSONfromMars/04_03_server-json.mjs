@@ -6,8 +6,9 @@ const server = createServer((request, response) => {
   response.statusCode = 200;
 
   response.setHeader("Content-Type", "application/json");
+  response.setHeader("Location", "Mars");
 
-  const jsonResponseBody = JSON.stringify({ location: "Earth" });
+  const jsonResponseBody = JSON.stringify({ location: "Mars" });
 
   response.end(jsonResponseBody);
 });
