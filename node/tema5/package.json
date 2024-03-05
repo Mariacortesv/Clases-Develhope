@@ -1,0 +1,16 @@
+{
+  "name": "tema5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "message_video.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cli-color": "^2.0.4",
+    "figlet": "^1.7.0"
+  }
+}
