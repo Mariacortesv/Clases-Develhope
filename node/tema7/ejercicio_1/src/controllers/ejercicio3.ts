@@ -1,5 +1,9 @@
 import { Request, Response } from "express";
 import Joi from "joi";
+import pgPromise from "pg-promise"
+
+const db = pgPromise({})("mariacortes://postgres:postgres@localhost5432/postgres")
+console.log(db)
 
 type Planet = {
   id: number;
