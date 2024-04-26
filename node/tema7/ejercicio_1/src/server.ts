@@ -106,8 +106,6 @@ app.delete("/api/planets/:id", (req, res) => {
 });
 
 
-
-
 const server = app.listen(port, () => {
   console.log(`Example app listening on http://localhost:${port}`);
 });

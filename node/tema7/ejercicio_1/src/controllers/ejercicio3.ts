@@ -2,10 +2,33 @@ import { Request, Response } from "express";
 import Joi from "joi";
 import pgPromise from "pg-promise"
 
-const db = pgPromise({})("mariacortes://postgres:postgres@localhost5432/postgres")
-console.log(db)
+const db = pgPromise()({
+  connectionString: "postgresql://postgres:postgres@localhost:5432/postgres"
+});
 
-type Planet = {
+// create table 
+const setupDb = async () => {
+  await db.none(`
+    DROP TABLE IF EXISTS planets;
+
+    CREATE TABLE planets (
+      id SERIAL NOT NULL PRIMARY KEY,
+      name TEXT NOT NULL
+    );
+  `);
+
+  await db.none("INSERT INTO planets (name) VALUES ('Earth')");
+  await db.none("INSERT INTO planets (name) VALUES ('Mars')");
+  await db.none("INSERT INTO planets (name) VALUES ('Jupiter')");
+
+  const planets = await db.many("SELECT * FROM planets;");
+  console.log(planets);
+};
+
+setupDb();
+
+//Al crear la tabla no necesitamos totalmente typescript
+ type Planet = {
   id: number;
   name: string;
 };
@@ -15,7 +38,9 @@ type Planets = Planet[];
 let planets: Planets = [
   { id: 1, name: "Earth" },
   { id: 2, name: "Mars" },
-];
+]; 
+
+// arreglar planets
 
 const planetSchema = Joi.object({
   id: Joi.number().integer().required(),
@@ -62,6 +87,7 @@ const updateById = (req: Request, res: Response) => {
     name: Joi.string().required(),
   });
 
+
   const { error } = schema.validate(req.body);
   if (error) {
     return res.status(400).json({ error: error.details[0].message });
@@ -90,4 +116,4 @@ const deleteById = (req: Request, res: Response) => {
   res.status(200).json({ msg: "Planet deleted" });
 };
 
-export { getAll, getOneById, create, updateById, deleteById };
+export { getAll, getOneById, create, updateById, deleteById};
