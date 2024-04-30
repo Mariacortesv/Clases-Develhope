@@ -1,13 +1,9 @@
 import { Request, Response } from "express";
 import Joi from "joi";
-import pgPromise from "pg-promise"
-
-const db = pgPromise()({
-  connectionString: "postgresql://postgres:postgres@localhost:5432/postgres"
-});
+import { db } from "../db";
 
 // create table 
-const setupDb = async () => {
+/* const setupDb = async () => {
   await db.none(`
     DROP TABLE IF EXISTS planets;
 
@@ -25,7 +21,7 @@ const setupDb = async () => {
   console.log(planets);
 };
 
-setupDb();
+setupDb(); */
 
 //Al crear la tabla no necesitamos totalmente typescript
  type Planet = {

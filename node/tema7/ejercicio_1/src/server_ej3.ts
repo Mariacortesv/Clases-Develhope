@@ -1,5 +1,6 @@
 import express from "express";
 import { getAll, getOneById, create, updateById, deleteById } from "./controllers/ejercicio3.js";
+import { logIn } from "./controllers/users.js";
 
 const app = express();
 const port = process.env.PORT || 3004;
@@ -20,6 +21,8 @@ app.put("/api/planets/:id", updateById);
 
 // DELETE /api/planets/:id
 app.delete("/api/planets/:id", deleteById);
+
+app.post("/api/users/login", logIn)
 
 const server = app.listen(port, () => {
   console.log(`Example app listening on http://localhost:${port}`);

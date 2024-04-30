@@ -20,6 +20,7 @@ const port = 3000;
 
 app.use(morgan("dev"));
 app.use(express.json())
+app.use("/uploads", express.static("uploads"));
 
 app.get("/api/planets", getAll)
 
