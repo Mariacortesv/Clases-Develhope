@@ -1,2 +1,3 @@
-# Clases-Develhope
-Ejercicios de las clases para corregir
+# Develhope Bootcamp
+Bootcamp Practice Exercises
+JavaScript, Node, React plus the checkpoint exams
